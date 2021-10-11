@@ -1,0 +1,25 @@
+Spring Boot application for URL shortener.
+
+Run the application and make sure it is running on port 8083. If the port is occupied, try another available port.
+
+Step 1:
+    Send a request GET - http://localhost:8083/url-shortener
+    It will return a HTML form page.
+        - Enter full URL (required) (should be http or https)
+        - Enter any alias you want to give to your short URL (optional) (if not provided, a hash value is generated)
+        - Press SUBMIT
+
+Step 2:
+    HTML page with short URL generated
+    Click on the short URL
+
+Step 3:
+    You are redirected to full URL
+
+
+Points to remember:
+    - try giving meaningful names, as if you try to enter same alias for other full URL's, the alias will be overridden
+    - This application check the URL entered. If wrong, it returns an error page
+    - Guava's murmur3 library is used to generate consistent hash of the full URL
+
+
