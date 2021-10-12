@@ -19,7 +19,7 @@ public class UrlShortenerService {
 
 
     public String createShortUrl(Url url) {
-        if (url.getAlias() == "") {
+        if (url.getAlias().equals("")) {
             String alias = Hashing.murmur3_32_fixed().hashString(url.getFullUrl(), StandardCharsets.UTF_8).toString();
             url.setAlias(alias);
         }
