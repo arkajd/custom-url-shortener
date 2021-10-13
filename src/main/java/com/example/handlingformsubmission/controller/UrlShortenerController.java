@@ -34,7 +34,7 @@ public class UrlShortenerController {
             String shortUrl = urlShortenerService.createShortUrl(url);
             model.addAttribute("shortUrl", shortUrl);
         } else {
-            return "badInput_400";
+            return "badInput400";
         }
         return "shortUrlResponse";
     }
@@ -43,7 +43,7 @@ public class UrlShortenerController {
     public String redirectToFullURL(@PathVariable String alias, Model model) {
         String redirectUrl = urlShortenerService.redirectToFullURL(alias);
         if (redirectUrl == null) {
-            return "badInput_400";
+            return "badInput400";
         }
         System.out.println(redirectUrl);
         model.addAttribute("redirectUrl", redirectUrl);

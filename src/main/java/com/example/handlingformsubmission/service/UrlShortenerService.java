@@ -17,15 +17,13 @@ public class UrlShortenerService {
         urlDB = new HashMap<>();
     }
 
-
     public String createShortUrl(Url url) {
-        if (url.getAlias() == "") {
+        if (url.getAlias().equals("")) {
             String alias = Hashing.murmur3_32_fixed().hashString(url.getFullUrl(), StandardCharsets.UTF_8).toString();
             url.setAlias(alias);
         }
         urlDB.put(url.getAlias(), url.getFullUrl());
         return "http://localhost:8083/short-url/" + url.getAlias();
-
     }
 
     public String redirectToFullURL(String alias) {
